@@ -33,8 +33,8 @@
             label3 = new Label();
             EmailTextBox = new TextBox();
             PasswordTextBox = new TextBox();
-            LoginButton = new Button();
-            linkLabelLogin = new LinkLabel();
+            SignInButton = new Button();
+            SignUplinkLabel = new LinkLabel();
             label4 = new Label();
             SuspendLayout();
             // 
@@ -82,30 +82,30 @@
             PasswordTextBox.Size = new Size(100, 23);
             PasswordTextBox.TabIndex = 4;
             // 
-            // LoginButton
+            // SignInButton
             // 
-            LoginButton.BackColor = Color.FromArgb(31, 35, 40);
-            LoginButton.Font = new Font("Segoe UI", 12F);
-            LoginButton.ForeColor = Color.White;
-            LoginButton.Location = new Point(329, 224);
-            LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(96, 42);
-            LoginButton.TabIndex = 5;
-            LoginButton.Text = "Sign in";
-            LoginButton.UseVisualStyleBackColor = false;
-            LoginButton.Click += LoginButton_Click;
+            SignInButton.BackColor = Color.FromArgb(31, 35, 40);
+            SignInButton.Font = new Font("Segoe UI", 12F);
+            SignInButton.ForeColor = Color.White;
+            SignInButton.Location = new Point(329, 224);
+            SignInButton.Name = "SignInButton";
+            SignInButton.Size = new Size(96, 42);
+            SignInButton.TabIndex = 5;
+            SignInButton.Text = "Sign in";
+            SignInButton.UseVisualStyleBackColor = false;
+            SignInButton.Click += SignInButton_Click_1;
             // 
-            // linkLabelLogin
+            // SignUplinkLabel
             // 
-            linkLabelLogin.AutoSize = true;
-            linkLabelLogin.LinkColor = Color.Black;
-            linkLabelLogin.Location = new Point(416, 282);
-            linkLabelLogin.Name = "linkLabelLogin";
-            linkLabelLogin.Size = new Size(47, 15);
-            linkLabelLogin.TabIndex = 6;
-            linkLabelLogin.TabStop = true;
-            linkLabelLogin.Text = "Sign up";
-            linkLabelLogin.LinkClicked += linkLabelLogin_LinkClicked;
+            SignUplinkLabel.AutoSize = true;
+            SignUplinkLabel.LinkColor = Color.Black;
+            SignUplinkLabel.Location = new Point(416, 282);
+            SignUplinkLabel.Name = "SignUplinkLabel";
+            SignUplinkLabel.Size = new Size(47, 15);
+            SignUplinkLabel.TabIndex = 6;
+            SignUplinkLabel.TabStop = true;
+            SignUplinkLabel.Text = "Sign up";
+            SignUplinkLabel.LinkClicked += SignUplinkLabel_LinkClicked;
             // 
             // label4
             // 
@@ -122,8 +122,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label4);
-            Controls.Add(linkLabelLogin);
-            Controls.Add(LoginButton);
+            Controls.Add(SignUplinkLabel);
+            Controls.Add(SignInButton);
             Controls.Add(PasswordTextBox);
             Controls.Add(EmailTextBox);
             Controls.Add(label3);
@@ -142,8 +142,8 @@
         private Label label3;
         private TextBox EmailTextBox;
         private TextBox PasswordTextBox;
-        private Button LoginButton;
-        private LinkLabel linkLabelLogin;
+        private Button SignInButton;
+        private LinkLabel SignUplinkLabel;
         private Label label4;
     }
 }

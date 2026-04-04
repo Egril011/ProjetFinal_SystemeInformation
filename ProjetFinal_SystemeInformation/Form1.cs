@@ -2,12 +2,15 @@ namespace ProjetFinal_SystemeInformation
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private AppFacade _appFacade;
+
+        public Form1(AppFacade appFacade)
         {
             InitializeComponent();
+            _appFacade = appFacade;
         }
 
-        private void LoginButton_Click(object sender, EventArgs e)
+        private void SignInButton_Click_1(object sender, EventArgs e)
         {
             if (EmailTextBox.Text == String.Empty || PasswordTextBox.Text == String.Empty)
             {
@@ -15,23 +18,20 @@ namespace ProjetFinal_SystemeInformation
                 return;
             }
 
-            AppFacade appFacade = new AppFacade();
-            User user = appFacade.SignIn(EmailTextBox.Text, PasswordTextBox.Text);
-
-            if (user == null)
+            if (!_appFacade.SignIn(EmailTextBox.Text, PasswordTextBox.Text))
             {
                 MessageBox.Show("Invalid email or password.");
                 return;
             }
 
-            MainForm mainForm = new MainForm(user);
+            MainForm mainForm = new MainForm(_appFacade);
             mainForm.Show();
             this.Hide();
         }
 
-        private void linkLabelLogin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void SignUplinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            SignUpForm signUp = new SignUpForm();
+            SignUpForm signUp = new SignUpForm(_appFacade);
             signUp.Show();
             this.Hide();
         }

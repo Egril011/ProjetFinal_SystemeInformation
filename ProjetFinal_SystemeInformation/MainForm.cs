@@ -10,30 +10,31 @@ namespace ProjetFinal_SystemeInformation
 {
     public partial class MainForm : Form
     {
-        private User _currentUser;
+        private AppFacade _appFacade;
 
-        public MainForm(User currentUser)
+        public MainForm(AppFacade appFacade)
         {
             InitializeComponent();
-            _currentUser = currentUser;
+            _appFacade = appFacade;
             this.Load += MainForm_Load;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Welcomlabel.Text = $"Welcome, {_currentUser.Username}!";
+            Welcomlabel.Text = $"Welcome, {_appFacade.CurrentUser.Username}!";
         }
-
-        private void linkLabelLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void SignOutlinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 form1 = new Form1();
+            _appFacade.SignOut();
+
+            Form1 form1 = new Form1(_appFacade);
             form1.Show();
             this.Hide();
         }
 
         private void CreateProjectButton_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

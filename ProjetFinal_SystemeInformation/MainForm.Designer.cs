@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            linkLabelLogout = new LinkLabel();
+            SignOutlinkLabel = new LinkLabel();
             Welcomlabel = new Label();
             CreateProjectButton = new Button();
             JoinProjectbutton = new Button();
@@ -36,17 +36,17 @@
             label1 = new Label();
             SuspendLayout();
             // 
-            // linkLabelLogout
+            // SignOutlinkLabel
             // 
-            linkLabelLogout.AutoSize = true;
-            linkLabelLogout.LinkColor = Color.Black;
-            linkLabelLogout.Location = new Point(743, 9);
-            linkLabelLogout.Name = "linkLabelLogout";
-            linkLabelLogout.Size = new Size(45, 15);
-            linkLabelLogout.TabIndex = 0;
-            linkLabelLogout.TabStop = true;
-            linkLabelLogout.Text = "Logout";
-            linkLabelLogout.LinkClicked += linkLabelLogout_LinkClicked;
+            SignOutlinkLabel.AutoSize = true;
+            SignOutlinkLabel.LinkColor = Color.Black;
+            SignOutlinkLabel.Location = new Point(743, 9);
+            SignOutlinkLabel.Name = "SignOutlinkLabel";
+            SignOutlinkLabel.Size = new Size(51, 15);
+            SignOutlinkLabel.TabIndex = 0;
+            SignOutlinkLabel.TabStop = true;
+            SignOutlinkLabel.Text = "Sign out";
+            SignOutlinkLabel.LinkClicked += SignOutlinkLabel_LinkClicked;
             // 
             // Welcomlabel
             // 
@@ -63,7 +63,7 @@
             CreateProjectButton.BackColor = Color.FromArgb(31, 35, 40);
             CreateProjectButton.Font = new Font("Segoe UI", 12F);
             CreateProjectButton.ForeColor = Color.White;
-            CreateProjectButton.Location = new Point(167, 93);
+            CreateProjectButton.Location = new Point(180, 93);
             CreateProjectButton.Name = "CreateProjectButton";
             CreateProjectButton.Size = new Size(183, 42);
             CreateProjectButton.TabIndex = 6;
@@ -111,7 +111,7 @@
             Controls.Add(JoinProjectbutton);
             Controls.Add(CreateProjectButton);
             Controls.Add(Welcomlabel);
-            Controls.Add(linkLabelLogout);
+            Controls.Add(SignOutlinkLabel);
             Name = "MainForm";
             Text = "MainForm";
             ResumeLayout(false);
@@ -119,8 +119,7 @@
         }
 
         #endregion
-
-        private LinkLabel linkLabelLogout;
+        private LinkLabel SignOutlinkLabel;
         private Label Welcomlabel;
         private Button CreateProjectButton;
         private Button JoinProjectbutton;

@@ -4,18 +4,31 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal class AppFacade
+    public class AppFacade
     {
         private AuthService _authService = new AuthService();
+        private UserSession _userSession = new UserSession();
+
+        public User CurrentUser => _userSession.CurrentUser;
 
         public bool CreateUser(User user)
         {
             return _authService.CreateUser(user);
         }
 
-        public User SignIn(string email, string password)
+        public bool SignIn(string email, string password)
         {
-            return _authService.SignIn(email, password);
+            User user = _authService.SignIn(email, password);
+            if (user == null)
+                return false;
+
+            _userSession.SignIn(user);
+            return true;
+        }
+
+        public void SignOut()
+        {
+            _userSession.SignOut();
         }
     }
 }
