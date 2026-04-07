@@ -12,5 +12,10 @@ namespace ProjetFinal_SystemeInformation
         public int UserId { get; set; }
         public string JoinCode { get; set; }
         public DateTime Created { get; set; }
+
+        public override string ToString()
+        {
+            return $"{Name} - {Course} {JoinCode}";
+        }
     }
 }

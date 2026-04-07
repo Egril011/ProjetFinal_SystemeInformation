@@ -41,15 +41,20 @@ namespace ProjetFinal_SystemeInformation
             if(ProjectNametextBox.Text == String.Empty || 
                 CoursetextBox.Text == String.Empty)
             {
-                Project project = new Project
-                {
-                    Name = ProjectNametextBox.Text,
-                    Course = CoursetextBox.Text,
-                    UserId = _appServices.Auth.CurrentUser.Id,
-                    JoinCode = PublicradioButton.Checked ? Codelabel.Text : null,
-                    Created = DateTime.Now
-                };
+                MessageBox.Show("Please fill in all fields.");
+                return;
             }
+
+            Project project = new Project
+            {
+                Name = ProjectNametextBox.Text,
+                Course = CoursetextBox.Text,
+                UserId = _appServices.Auth.CurrentUser.Id,
+                JoinCode = PublicradioButton.Checked ? Codelabel.Text : null,
+                Created = DateTime.Now
+            };
+
+            _appServices.Project.CreateProject(project);
         }
 
         private void BacklinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

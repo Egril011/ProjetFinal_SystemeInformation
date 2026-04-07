@@ -18,6 +18,11 @@ namespace ProjetFinal_SystemeInformation
             return _projectService.GetProjectsByUserId(id);
         }
 
+        public bool JoinProject(string joinCode)
+        {
+            return _projectService.JoinProject(joinCode);
+        }
+
         public string GenerateJoinCode()
         {
             return _projectService.GenerateJoinCode();

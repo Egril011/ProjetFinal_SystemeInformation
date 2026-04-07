@@ -24,5 +24,23 @@ namespace ProjetFinal_SystemeInformation
             mainForm.Show();
             this.Close();
         }
+
+        private void JoinButton_Click(object sender, EventArgs e)
+        {
+            if(JointextBox.Text == String.Empty)
+            {
+               MessageBox.Show("Please enter a join code.");
+                return;
+            }
+
+            
+            if (_appServices.Project.JoinProject(JointextBox.Text))
+            {
+                MessageBox.Show("You have successfully joined the project!");
+                 return;
+            }
+
+            MessageBox.Show("Invalid join code or you are already a member of this project.");
+        }
     }
 }
