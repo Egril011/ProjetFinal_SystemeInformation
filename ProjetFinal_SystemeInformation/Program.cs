@@ -12,9 +12,9 @@ namespace ProjetFinal_SystemeInformation
             // see https://aka.ms/applicationconfiguration.
             SQLitePCL.Batteries.Init();
 
-            AppFacade appFacade = new AppFacade();
+            AppServices appServices = new AppServices();
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1(appFacade));
+            Application.Run(new Form1(appServices));
         }
     }
 }

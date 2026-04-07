@@ -40,7 +40,7 @@ namespace ProjetFinal_SystemeInformation
             }
         }
 
-        public User GetUser(string email)
+        public User GetUserByEmail(string email)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {

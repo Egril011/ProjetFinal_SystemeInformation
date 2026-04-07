@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    public class AppFacade
+   public class AuthFacade
     {
         private AuthService _authService = new AuthService();
         private UserSession _userSession = new UserSession();

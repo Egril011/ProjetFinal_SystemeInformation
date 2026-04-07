@@ -10,17 +10,17 @@ namespace ProjetFinal_SystemeInformation
 {
     public partial class SignUpForm : Form
     {
-        private AppFacade _appFacade;
+        private AppServices _appServices;
 
-        public SignUpForm(AppFacade appFacade)
+        public SignUpForm(AppServices appServices)
         {
             InitializeComponent();
-            _appFacade = appFacade;
+            _appServices = appServices;
         }
 
         private void SignInlinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Form1 form1 = new Form1(_appFacade);
+            Form1 form1 = new Form1(_appServices);
             form1.Show();
             this.Hide();
         }
@@ -41,7 +41,7 @@ namespace ProjetFinal_SystemeInformation
                 Username = usernametextBox.Text
             };
 
-            if (_appFacade.CreateUser(user)) 
+            if (_appServices.Auth.CreateUser(user)) 
             {
                 MessageBox.Show("Account created successfully");
             }

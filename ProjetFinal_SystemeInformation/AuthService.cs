@@ -19,7 +19,7 @@ namespace ProjetFinal_SystemeInformation
 
         public User SignIn(string email, string password)
         {
-            User user = _userRepository.GetUser(email);
+            User user = _userRepository.GetUserByEmail(email);
             if (user == null)
                 return null;
 

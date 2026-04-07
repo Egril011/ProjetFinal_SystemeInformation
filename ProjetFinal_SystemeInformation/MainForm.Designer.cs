@@ -32,15 +32,16 @@
             Welcomlabel = new Label();
             CreateProjectButton = new Button();
             JoinProjectbutton = new Button();
-            listBox1 = new ListBox();
+            ProjectslistBox = new ListBox();
             label1 = new Label();
             SuspendLayout();
             // 
             // SignOutlinkLabel
             // 
             SignOutlinkLabel.AutoSize = true;
+            SignOutlinkLabel.Font = new Font("Segoe UI", 9F);
             SignOutlinkLabel.LinkColor = Color.Black;
-            SignOutlinkLabel.Location = new Point(743, 9);
+            SignOutlinkLabel.Location = new Point(737, 9);
             SignOutlinkLabel.Name = "SignOutlinkLabel";
             SignOutlinkLabel.Size = new Size(51, 15);
             SignOutlinkLabel.TabIndex = 0;
@@ -82,14 +83,15 @@
             JoinProjectbutton.TabIndex = 7;
             JoinProjectbutton.Text = "Join Project";
             JoinProjectbutton.UseVisualStyleBackColor = false;
+            JoinProjectbutton.Click += JoinProjectbutton_Click;
             // 
-            // listBox1
+            // ProjectslistBox
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(12, 169);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(578, 169);
-            listBox1.TabIndex = 8;
+            ProjectslistBox.FormattingEnabled = true;
+            ProjectslistBox.Location = new Point(12, 169);
+            ProjectslistBox.Name = "ProjectslistBox";
+            ProjectslistBox.Size = new Size(578, 169);
+            ProjectslistBox.TabIndex = 8;
             // 
             // label1
             // 
@@ -107,7 +109,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(label1);
-            Controls.Add(listBox1);
+            Controls.Add(ProjectslistBox);
             Controls.Add(JoinProjectbutton);
             Controls.Add(CreateProjectButton);
             Controls.Add(Welcomlabel);
@@ -123,7 +125,7 @@
         private Label Welcomlabel;
         private Button CreateProjectButton;
         private Button JoinProjectbutton;
-        private ListBox listBox1;
+        private ListBox ProjectslistBox;
         private Label label1;
     }
 }
