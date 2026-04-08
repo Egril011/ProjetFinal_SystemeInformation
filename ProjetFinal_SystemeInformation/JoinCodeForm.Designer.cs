@@ -1,6 +1,6 @@
 ﻿namespace ProjetFinal_SystemeInformation
 {
-    partial class JoinCode
+    partial class JoinCodeForm
     {
         /// <summary>
         /// Required designer variable.

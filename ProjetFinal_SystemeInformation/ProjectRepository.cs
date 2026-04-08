@@ -9,7 +9,7 @@ namespace ProjetFinal_SystemeInformation
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
                 connection.Open();
-                string query = "INSERT INTO Projects (ProjectName, Course, CreatedByUserId, JoinCode, CreatedAt) " +
+                string query = "INSERT INTO Projects (Name, Course, CreatedByUserId, JoinCode, CreatedAt) " +
                     "VALUES (@Name, @Course, @UserId, @JoinCode, @Created);" +
                     "SELECT last_insert_rowid()";
 
@@ -33,8 +33,11 @@ namespace ProjetFinal_SystemeInformation
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
                 connection.Open();
-                string query = "SELECT Id, ProjectName, Course, CreatedByUserId, JoinCode, CreatedAt " +
-                    "FROM Projects WHERE CreatedByUserId = @userId";
+                string query = "SELECT p.Id, p.Name, p.Course, p.CreatedByUserId, " +
+                    "p.JoinCode, p.CreatedAt " +
+                    "FROM Projects p " +
+                    "INNER JOIN ProjectMembers pm ON p.Id = pm.ProjectId " +
+                    "WHERE pm.UserId = @userId";
 
                 using (SqliteCommand command = new SqliteCommand(query, connection))
                 {
@@ -46,7 +49,7 @@ namespace ProjetFinal_SystemeInformation
                             Project project = new Project
                             {
                                 Id = Convert.ToInt32(reader["Id"]),
-                                Name = reader["ProjectName"].ToString(),
+                                Name = reader["Name"].ToString(),
                                 Course = reader["Course"].ToString(),
                                 UserId = Convert.ToInt32(reader["CreatedByUserId"]),
                                 JoinCode = reader["JoinCode"].ToString(),
@@ -67,7 +70,7 @@ namespace ProjetFinal_SystemeInformation
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
                 connection.Open();
-                string query = "SELECT Id, ProjectName, Course, CreatedByUserId, JoinCode, CreatedAt " +
+                string query = "SELECT Id, Name, Course, CreatedByUserId, JoinCode, CreatedAt " +
                     "FROM Projects WHERE JoinCode = @joinCode";
                 using (SqliteCommand command = new SqliteCommand(query, connection))
                 {
@@ -80,7 +83,7 @@ namespace ProjetFinal_SystemeInformation
                         Project project = new Project
                         {
                             Id = Convert.ToInt32(reader["Id"]),
-                            Name = reader["ProjectName"].ToString(),
+                            Name = reader["Name"].ToString(),
                             Course = reader["Course"].ToString(),
                             UserId = Convert.ToInt32(reader["CreatedByUserId"]),
                             JoinCode = reader["JoinCode"].ToString(),

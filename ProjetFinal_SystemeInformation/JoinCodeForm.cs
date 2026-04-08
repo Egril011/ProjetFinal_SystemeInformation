@@ -8,11 +8,11 @@ using System.Windows.Forms;
 
 namespace ProjetFinal_SystemeInformation
 {
-    public partial class JoinCode : Form
+    public partial class JoinCodeForm : Form
     {
         private AppServices _appServices;
 
-        public JoinCode(AppServices appServices)
+        public JoinCodeForm(AppServices appServices)
         {
             InitializeComponent();
             _appServices = appServices;
@@ -34,7 +34,8 @@ namespace ProjetFinal_SystemeInformation
             }
 
             
-            if (_appServices.Project.JoinProject(JointextBox.Text))
+            if (_appServices.Project.JoinProject(JointextBox.Text,
+                _appServices.Auth.CurrentUser.Id))
             {
                 MessageBox.Show("You have successfully joined the project!");
                  return;

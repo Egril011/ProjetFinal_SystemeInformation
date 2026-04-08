@@ -34,6 +34,7 @@
             JoinProjectbutton = new Button();
             ProjectslistBox = new ListBox();
             label1 = new Label();
+            OpenProjectbutton = new Button();
             SuspendLayout();
             // 
             // SignOutlinkLabel
@@ -53,7 +54,7 @@
             // 
             Welcomlabel.AutoSize = true;
             Welcomlabel.Font = new Font("Segoe UI", 20F);
-            Welcomlabel.Location = new Point(311, 33);
+            Welcomlabel.Location = new Point(12, 31);
             Welcomlabel.Name = "Welcomlabel";
             Welcomlabel.Size = new Size(90, 37);
             Welcomlabel.TabIndex = 1;
@@ -64,7 +65,7 @@
             CreateProjectButton.BackColor = Color.FromArgb(31, 35, 40);
             CreateProjectButton.Font = new Font("Segoe UI", 12F);
             CreateProjectButton.ForeColor = Color.White;
-            CreateProjectButton.Location = new Point(180, 93);
+            CreateProjectButton.Location = new Point(12, 81);
             CreateProjectButton.Name = "CreateProjectButton";
             CreateProjectButton.Size = new Size(183, 42);
             CreateProjectButton.TabIndex = 6;
@@ -77,7 +78,7 @@
             JoinProjectbutton.BackColor = Color.FromArgb(31, 35, 40);
             JoinProjectbutton.Font = new Font("Segoe UI", 12F);
             JoinProjectbutton.ForeColor = Color.White;
-            JoinProjectbutton.Location = new Point(369, 93);
+            JoinProjectbutton.Location = new Point(201, 81);
             JoinProjectbutton.Name = "JoinProjectbutton";
             JoinProjectbutton.Size = new Size(183, 42);
             JoinProjectbutton.TabIndex = 7;
@@ -103,11 +104,25 @@
             label1.TabIndex = 9;
             label1.Text = "My projects";
             // 
+            // OpenProjectbutton
+            // 
+            OpenProjectbutton.BackColor = Color.FromArgb(31, 35, 40);
+            OpenProjectbutton.Font = new Font("Segoe UI", 12F);
+            OpenProjectbutton.ForeColor = Color.White;
+            OpenProjectbutton.Location = new Point(263, 357);
+            OpenProjectbutton.Name = "OpenProjectbutton";
+            OpenProjectbutton.Size = new Size(202, 48);
+            OpenProjectbutton.TabIndex = 10;
+            OpenProjectbutton.Text = "Open Selected Project";
+            OpenProjectbutton.UseVisualStyleBackColor = false;
+            OpenProjectbutton.Click += OpenProjectbutton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(OpenProjectbutton);
             Controls.Add(label1);
             Controls.Add(ProjectslistBox);
             Controls.Add(JoinProjectbutton);
@@ -127,5 +142,6 @@
         private Button JoinProjectbutton;
         private ListBox ProjectslistBox;
         private Label label1;
+        private Button OpenProjectbutton;
     }
 }

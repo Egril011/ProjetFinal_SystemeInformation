@@ -22,7 +22,7 @@ namespace ProjetFinal_SystemeInformation
         {
             Form1 form1 = new Form1(_appServices);
             form1.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void CreateAccountButton_Click(object sender, EventArgs e)

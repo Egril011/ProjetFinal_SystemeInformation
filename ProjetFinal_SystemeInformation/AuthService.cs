@@ -8,7 +8,7 @@ namespace ProjetFinal_SystemeInformation
 
         public bool CreateUser(User user)
         {
-            if(_userRepository.GetEmail(user.Email))
+            if(_userRepository.EmailExists(user.Email))
                 return false;
 
             user.Password = PasswordManager.HashPassword(user, user.Password);
@@ -17,16 +17,21 @@ namespace ProjetFinal_SystemeInformation
             return true;
         }
 
-        public User SignIn(string email, string password)
+        public User? SignIn(string email, string password)
         {
-            User user = _userRepository.GetUserByEmail(email);
+            User? user = _userRepository.GetUserByEmail(email);
             if (user == null)
                 return null;
 
-            if (PasswordManager.VerifyPassword(user, password))
-                return user;
+            if (!PasswordManager.VerifyPassword(user, password))
+                return null;
 
-            return null;
+            return user;
+        }
+
+        public User GetUserById(int id)
+        {
+            return _userRepository.GetUserById(id);
         }
     }
 }

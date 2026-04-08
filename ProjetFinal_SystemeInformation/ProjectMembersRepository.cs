@@ -7,7 +7,7 @@ namespace ProjetFinal_SystemeInformation
 {
     internal class ProjectMembersRepository
     {
-        public void AddMemberToProject(int projectId, int userId, ProjectRole projectRole)
+        public void AddMemberToProject(ProjectMember projectMember)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
@@ -17,16 +17,16 @@ namespace ProjetFinal_SystemeInformation
 
                 using (var command = new SqliteCommand(query, connection))
                 {
-                    command.Parameters.AddWithValue("@projectId", projectId);
-                    command.Parameters.AddWithValue("@userId", userId);
-                    command.Parameters.AddWithValue("@role", (int)projectRole);
-                    command.Parameters.AddWithValue("@JoinedAt", DateTime.Now);
+                    command.Parameters.AddWithValue("@projectId", projectMember.ProjectId);
+                    command.Parameters.AddWithValue("@userId", projectMember.UserId);
+                    command.Parameters.AddWithValue("@role", (int)projectMember.ProjectRole);
+                    command.Parameters.AddWithValue("@JoinedAt", projectMember.JoinedAt);
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        public bool ExistMember(int projectId, int userId)
+        public bool MemberExists(int projectId, int userId)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
@@ -48,6 +48,58 @@ namespace ProjetFinal_SystemeInformation
                     return false;  
                 }
             }
+        }
+
+        public int GetProjectLeaderId(int projectId)
+        {
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+
+                string query = "SELECT UserId FROM ProjectMembers " +
+                    "WHERE ProjectId = @projectId AND Role = @role";
+
+                using (SqliteCommand command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@projectId", projectId);
+                    command.Parameters.AddWithValue("@role", (int)ProjectRole.Leader);
+
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return Convert.ToInt32(reader["UserId"]);
+                        }
+                    }
+                }
+            }
+
+            return -1;
+        }
+
+        public List<int> GetProjectMembers(int projectId)
+        {
+            List<int> members = new List<int>();
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+
+                string query = "SELECT UserId FROM ProjectMembers " +
+                    "WHERE ProjectId = @projectId";
+                using (SqliteCommand command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@projectId", projectId);
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            members.Add(Convert.ToInt32(reader["UserId"]));
+                        }
+                    }
+                }
+            }
+
+            return members;
         }
     }
 }

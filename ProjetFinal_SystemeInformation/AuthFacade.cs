@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-   public class AuthFacade
+    public class AuthFacade
     {
         private AuthService _authService = new AuthService();
         private UserSession _userSession = new UserSession();
@@ -18,10 +18,10 @@ namespace ProjetFinal_SystemeInformation
 
         public bool SignIn(string email, string password)
         {
-            User user = _authService.SignIn(email, password);
+            User? user = _authService.SignIn(email, password);
             if (user == null)
                 return false;
-
+           
             _userSession.SignIn(user);
             return true;
         }
@@ -29,6 +29,11 @@ namespace ProjetFinal_SystemeInformation
         public void SignOut()
         {
             _userSession.SignOut();
+        }
+
+        public User GetUserById(int id)
+        {
+            return _authService.GetUserById(id);
         }
     }
 }

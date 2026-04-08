@@ -28,10 +28,10 @@ namespace ProjetFinal_SystemeInformation
             List<Project> projects = _appServices.Project.GetProjectsByUserId(
                 _appServices.Auth.CurrentUser.Id);
 
-            if(projects.Count == 0)
+            if (projects.Count == 0)
             {
                 ProjectslistBox.Items.Add("Any projects yet.");
-                ProjectslistBox.Enabled = false; 
+                ProjectslistBox.Enabled = false;
                 return;
             }
 
@@ -60,8 +60,24 @@ namespace ProjetFinal_SystemeInformation
 
         private void JoinProjectbutton_Click(object sender, EventArgs e)
         {
-            JoinCode joinCodeForm = new JoinCode(_appServices);
+            JoinCodeForm joinCodeForm = new JoinCodeForm(_appServices);
             joinCodeForm.Show();
+            this.Hide();
+        }
+
+        private void OpenProjectbutton_Click(object sender, EventArgs e)
+        {
+           if (ProjectslistBox.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a valid project.");
+                return;
+            }
+
+
+            ProjectDetailsForm projectDetailsForm = new ProjectDetailsForm(_appServices, 
+                (Project)ProjectslistBox.SelectedItem);
+
+            projectDetailsForm.Show();
             this.Hide();
         }
     }

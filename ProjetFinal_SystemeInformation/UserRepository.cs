@@ -3,7 +3,7 @@ namespace ProjetFinal_SystemeInformation
 {
     internal class UserRepository
     {
-        public bool GetEmail(string email)
+        public bool EmailExists(string email)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
@@ -29,7 +29,8 @@ namespace ProjetFinal_SystemeInformation
             {
                 connection.Open();
 
-                string insertQuery = "INSERT INTO Users (Username, Password, Email) VALUES (@username, @password, @email)";
+                string insertQuery = "INSERT INTO Users (Username, HashPassword, Email) " +
+                    "VALUES (@username, @password, @email)";
                 using (SqliteCommand command = new SqliteCommand(insertQuery, connection))
                 {
                     command.Parameters.AddWithValue("@username", user.Username);
@@ -40,12 +41,12 @@ namespace ProjetFinal_SystemeInformation
             }
         }
 
-        public User GetUserByEmail(string email)
+        public User? GetUserByEmail(string email)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
                 connection.Open();
-                string query = "SELECT Id, Email, Password, Username FROM Users WHERE Email " +
+                string query = "SELECT Id, Email, HashPassword, Username FROM Users WHERE Email " +
                     "= @email";
 
                 using (SqliteCommand command = new SqliteCommand(query, connection))
@@ -59,10 +60,38 @@ namespace ProjetFinal_SystemeInformation
                         User user = new User {
                             Id = Convert.ToInt32(reader["Id"]),
                             Email = reader["Email"].ToString(),
-                            Password = reader["Password"].ToString(),
+                            Password = reader["HashPassword"].ToString(),
                             Username = reader["Username"].ToString()
                         };
 
+                        return user;
+                    }
+                }
+            }
+        }
+
+        public User GetUserById(int userId)
+        {
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+
+                string query = "SELECT Id, Email, HashPassword, Username FROM Users WHERE Id " +
+                    "= @userId";
+                using (SqliteCommand command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@userId", userId);
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            return null;
+                        User user = new User
+                        {
+                            Id = Convert.ToInt32(reader["Id"]),
+                            Email = reader["Email"].ToString(),
+                            Password = reader["HashPassword"].ToString(),
+                            Username = reader["Username"].ToString()
+                        };
                         return user;
                     }
                 }
