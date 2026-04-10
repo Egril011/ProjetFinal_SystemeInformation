@@ -46,14 +46,13 @@ namespace ProjetFinal_SystemeInformation
                 return;
             }
 
-            Project project = new Project
-            {
-                Name = ProjectNametextBox.Text,
-                Course = CoursetextBox.Text,
-                UserId = _appServices.Auth.CurrentUser.Id,
-                JoinCode = PublicradioButton.Checked ? Codelabel.Text : null,
-                Created = DateTime.Now
-            };
+            Project project = new Project(
+                ProjectNametextBox.Text,
+                CoursetextBox.Text,
+                _appServices.Auth.CurrentUser.Id,
+                PublicradioButton.Checked ? Codelabel.Text : null,
+                DateTime.Now
+                );
 
             if(_appServices.Project.CreateProject(project))
             {

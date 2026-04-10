@@ -2,7 +2,7 @@
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal class ProjectRepository
+    public class ProjectRepository
     {
         public int CreateProject(Project project)
         {
@@ -24,21 +24,6 @@ namespace ProjetFinal_SystemeInformation
                     command.Parameters.AddWithValue("@Created", DateTime.Now);
 
                     return Convert.ToInt32(command.ExecuteScalar());
-                }
-            }
-        }
-
-        public void RemoveUserFromProject(int projectId, int userId)
-        {
-            using (var connection = DatabaseHelper.Instance.GetConnection())
-            {
-                connection.Open();
-                string query = "DELETE FROM ProjectMembers WHERE ProjectId = @projectId AND UserId = @userId";
-                using (var command = new SqliteCommand(query, connection))
-                {
-                    command.Parameters.AddWithValue("@projectId", projectId);
-                    command.Parameters.AddWithValue("@userId", userId);
-                    command.ExecuteNonQuery();
                 }
             }
         }
@@ -77,15 +62,14 @@ namespace ProjetFinal_SystemeInformation
                     {
                         while (reader.Read())
                         {
-                            Project project = new Project
-                            {
-                                Id = Convert.ToInt32(reader["Id"]),
-                                Name = reader["Name"].ToString(),
-                                Course = reader["Course"].ToString(),
-                                UserId = Convert.ToInt32(reader["CreatedByUserId"]),
-                                JoinCode = reader["JoinCode"].ToString(),
-                                Created = Convert.ToDateTime(reader["CreatedAt"])
-                            };
+                            Project project = new Project(
+                                Convert.ToInt32(reader["Id"]),
+                                reader["Name"].ToString(),
+                                reader["Course"].ToString(),
+                                Convert.ToInt32(reader["CreatedByUserId"]),
+                                reader["JoinCode"].ToString(),
+                                Convert.ToDateTime(reader["CreatedAt"])
+                            );
 
                             projects.Add(project);
                         }
@@ -96,7 +80,7 @@ namespace ProjetFinal_SystemeInformation
             return projects;
         }
 
-        public Project GetProjectByJoinCode(string joinCode)
+        public Project? GetProjectByJoinCode(string joinCode)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
@@ -111,15 +95,14 @@ namespace ProjetFinal_SystemeInformation
                         if (!reader.Read())
                             return null;
 
-                        Project project = new Project
-                        {
-                            Id = Convert.ToInt32(reader["Id"]),
-                            Name = reader["Name"].ToString(),
-                            Course = reader["Course"].ToString(),
-                            UserId = Convert.ToInt32(reader["CreatedByUserId"]),
-                            JoinCode = reader["JoinCode"].ToString(),
-                            Created = Convert.ToDateTime(reader["CreatedAt"])
-                        };
+                        Project project = new Project(
+                            Convert.ToInt32(reader["Id"]),
+                            reader["Name"].ToString(),
+                            course: reader["Course"].ToString(),
+                            Convert.ToInt32(reader["CreatedByUserId"]),
+                            reader["JoinCode"].ToString(),
+                            Convert.ToDateTime(reader["CreatedAt"])
+                        );
 
                         return project;
                     }

@@ -6,8 +6,19 @@ namespace ProjetFinal_SystemeInformation
 {
     public class AppServices
     {
-        private AuthFacade _authFacade = new AuthFacade();
-        private ProjectFacade _projectFacade = new ProjectFacade();
+        private AuthFacade _authFacade;
+        private ProjectFacade _projectFacade;
+
+        public AppServices()
+        {
+            _authFacade = new AuthFacade(
+                new AuthService(new UserRepository()), 
+                new UserSession());
+
+            _projectFacade = new ProjectFacade(
+                new ProjectService(new ProjectRepository()), 
+                new ProjectMembersService(new ProjectMembersRepository()));
+        }
 
         public AuthFacade Auth => _authFacade;
 

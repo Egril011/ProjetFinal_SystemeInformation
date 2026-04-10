@@ -3,7 +3,7 @@ using Microsoft.Data.Sqlite;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal class DatabaseHelper
+    public class DatabaseHelper
     {
         private static DatabaseHelper _instance = new DatabaseHelper();
 

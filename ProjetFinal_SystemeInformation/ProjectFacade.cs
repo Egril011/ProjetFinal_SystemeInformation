@@ -6,12 +6,18 @@ namespace ProjetFinal_SystemeInformation
 {
     public class ProjectFacade
     {
-        private ProjectService _projectService = new ProjectService();
-        private ProjectMembersService _projectMembersService = new ProjectMembersService();
+        private ProjectService _projectService;
+        private ProjectMembersService _projectMembersService;
+
+        public ProjectFacade(ProjectService projectService, ProjectMembersService projectMembersService)
+        {
+            _projectService = projectService;
+            _projectMembersService = projectMembersService;
+        }
 
         public bool CreateProject(Project project)
         {
-            if(project == null)
+            if (project == null)
                 return false;
 
             int projectId = _projectService.CreateProject(project);
@@ -24,7 +30,7 @@ namespace ProjetFinal_SystemeInformation
 
         public void DeleteProject(int projectId, int userId)
         {
-            if(_projectMembersService.IsUserProjectOwner(projectId, userId))
+            if (_projectMembersService.IsUserProjectOwner(projectId, userId))
             {
                 _projectMembersService.RemoveAllMembersFromProject(projectId);
                 _projectService.DeleteProject(projectId);
@@ -39,14 +45,14 @@ namespace ProjetFinal_SystemeInformation
             return _projectService.GetProjectsByUserId(userId);
         }
 
-        public int GetProjectLeader(int id)
+        public int GetProjectLeader(int userId)
         {
-            return _projectMembersService.GetProjectLeaderId(id);
+            return _projectMembersService.GetProjectLeaderId(userId);
         }
 
-        public List<int> GetProjectMembers(int id)
+        public List<int> GetProjectMembers(int projectId)
         {
-            return _projectMembersService.GetProjectMembers(id);
+            return _projectMembersService.GetProjectMembers(projectId);
         }
 
         public bool JoinProject(string joinCode, int userId)
@@ -55,8 +61,8 @@ namespace ProjetFinal_SystemeInformation
             if (project == null)
                 return false;
 
-           return _projectMembersService.AddMemberToProject(project.Id, userId, 
-                ProjectRole.Member);
+            return _projectMembersService.AddMemberToProject(project.Id, userId,
+                 ProjectRole.Member);
         }
 
         public string GenerateJoinCode()

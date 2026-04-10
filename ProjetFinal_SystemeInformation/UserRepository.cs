@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 namespace ProjetFinal_SystemeInformation
 {
-    internal class UserRepository
+    public class UserRepository
     {
         public bool EmailExists(string email)
         {
@@ -57,12 +57,12 @@ namespace ProjetFinal_SystemeInformation
                         if(!reader.Read())
                             return null;
 
-                        User user = new User {
-                            Id = Convert.ToInt32(reader["Id"]),
-                            Email = reader["Email"].ToString(),
-                            Password = reader["HashPassword"].ToString(),
-                            Username = reader["Username"].ToString()
-                        };
+                        User user = new User(
+                            Convert.ToInt32(reader["Id"]),
+                            reader["Username"].ToString(),
+                            reader["HashPassword"].ToString(),
+                            reader["Email"].ToString()
+                            );
 
                         return user;
                     }
@@ -70,7 +70,7 @@ namespace ProjetFinal_SystemeInformation
             }
         }
 
-        public User GetUserById(int userId)
+        public User? GetUserById(int userId)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {
@@ -85,13 +85,14 @@ namespace ProjetFinal_SystemeInformation
                     {
                         if (!reader.Read())
                             return null;
-                        User user = new User
-                        {
-                            Id = Convert.ToInt32(reader["Id"]),
-                            Email = reader["Email"].ToString(),
-                            Password = reader["HashPassword"].ToString(),
-                            Username = reader["Username"].ToString()
-                        };
+
+                        User user = new User(
+                            Convert.ToInt32(reader["Id"]),
+                            reader["Username"].ToString(),
+                            reader["HashPassword"].ToString(),
+                            reader["Email"].ToString()
+                        );
+
                         return user;
                     }
                 }

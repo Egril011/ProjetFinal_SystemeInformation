@@ -4,9 +4,14 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal class ProjectMembersService
+    public class ProjectMembersService
     {
-        private ProjectMembersRepository _projectMembersRepository = new ProjectMembersRepository();
+        private ProjectMembersRepository _projectMembersRepository;
+
+        public ProjectMembersService(ProjectMembersRepository projectMembersRepository) 
+        {
+            _projectMembersRepository = projectMembersRepository;
+        }
 
         public bool AddMemberToProject(int projectId, int userId, ProjectRole projectRole)
         {
@@ -44,7 +49,7 @@ namespace ProjetFinal_SystemeInformation
             if(!_projectMembersRepository.MemberExists(projectId, userId))
                 return false;
 
-            return _projectMembersRepository.IsUserProjectOwner(projectId, userId);
+            return _projectMembersRepository.IsUserProjectLeader(projectId, userId);
         }
 
         public List<int> GetProjectMembers(int projectId)

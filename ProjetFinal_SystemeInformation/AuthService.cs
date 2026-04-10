@@ -2,16 +2,21 @@
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal class AuthService
+    public class AuthService
     {
-        UserRepository _userRepository = new UserRepository();
+        private UserRepository _userRepository;
+
+        public AuthService(UserRepository userRepository)
+        {
+            _userRepository = userRepository;
+        }
 
         public bool CreateUser(User user)
         {
             if(_userRepository.EmailExists(user.Email))
                 return false;
 
-            user.Password = PasswordManager.HashPassword(user, user.Password);
+            user.SetHashedPassword(PasswordManager.HashPassword(user, user.Password));
             _userRepository.CreateUser(user);
 
             return true;
@@ -29,7 +34,7 @@ namespace ProjetFinal_SystemeInformation
             return user;
         }
 
-        public User GetUserById(int id)
+        public User? GetUserById(int id)
         {
             return _userRepository.GetUserById(id);
         }

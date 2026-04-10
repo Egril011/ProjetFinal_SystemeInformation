@@ -34,12 +34,11 @@ namespace ProjetFinal_SystemeInformation
                 return;
             }
 
-            User user = new User
-            {
-                Email = emailtextBox.Text,
-                Password = passwordtextBox.Text,
-                Username = usernametextBox.Text
-            };
+            User user = new User(
+                usernametextBox.Text,
+                passwordtextBox.Text,
+                emailtextBox.Text
+            );
 
             if (_appServices.Auth.CreateUser(user)) 
             {

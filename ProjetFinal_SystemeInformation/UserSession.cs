@@ -6,7 +6,7 @@ namespace ProjetFinal_SystemeInformation
 {
     public class UserSession
     {
-        public User CurrentUser { get; private set; }
+        public User? CurrentUser { get; private set; }
 
         public void SignIn(User user)
         {

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal enum ProjectRole
+    public enum ProjectRole
     {
         Leader = 0,
         Member = 1,

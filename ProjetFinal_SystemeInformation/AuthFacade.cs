@@ -6,10 +6,16 @@ namespace ProjetFinal_SystemeInformation
 {
     public class AuthFacade
     {
-        private AuthService _authService = new AuthService();
-        private UserSession _userSession = new UserSession();
+        private AuthService _authService;
+        private UserSession _userSession;
 
-        public User CurrentUser => _userSession.CurrentUser;
+        public AuthFacade(AuthService authService, UserSession userSession)
+        {
+            _authService = authService;
+            _userSession = userSession;
+        }
+
+        public User? CurrentUser => _userSession.CurrentUser;
 
         public bool CreateUser(User user)
         {
@@ -31,7 +37,7 @@ namespace ProjetFinal_SystemeInformation
             _userSession.SignOut();
         }
 
-        public User GetUserById(int id)
+        public User? GetUserById(int id)
         {
             return _authService.GetUserById(id);
         }

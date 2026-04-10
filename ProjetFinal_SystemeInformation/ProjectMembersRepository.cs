@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal class ProjectMembersRepository
+    public class ProjectMembersRepository
     {
         public void AddMemberToProject(ProjectMember projectMember)
         {
@@ -107,7 +107,7 @@ namespace ProjetFinal_SystemeInformation
             return -1;
         }
 
-        public bool IsUserProjectOwner(int projectId, int userId)
+        public bool IsUserProjectLeader(int projectId, int userId)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
             {

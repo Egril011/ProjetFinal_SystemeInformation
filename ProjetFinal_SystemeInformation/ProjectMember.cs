@@ -4,24 +4,19 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal class ProjectMember
+    public class ProjectMember
     {
-        private int _projectId;
-        private int _userId;
-        private ProjectRole _projectRole;
-        private DateTime _joinedAt;
+        public int ProjectId {get; private set;}
+        public int UserId {get; private set;}
+        public ProjectRole ProjectRole {get; private set;}
+        public DateTime JoinedAt {get; private set;}
 
         public ProjectMember(int projectId, int userId, ProjectRole role)
         {
-            _projectId = projectId;
-            _userId = userId;
-            _projectRole = role;
-            _joinedAt = DateTime.Now;
+            ProjectId = projectId;
+            UserId = userId;
+            ProjectRole = role;
+            JoinedAt = DateTime.Now;
         }
-
-        public int ProjectId => _projectId;
-        public int UserId => _userId;
-        public ProjectRole ProjectRole => _projectRole;
-        public DateTime JoinedAt => _joinedAt;
     }
 }

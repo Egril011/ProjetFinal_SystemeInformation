@@ -26,7 +26,7 @@ namespace ProjetFinal_SystemeInformation
             ProjectNamelabel.Text = $"Project: {_project.Name}";
 
             //Get the project leader and members
-            User leader = _appServices.Auth.GetUserById(
+            User? leader = _appServices.Auth.GetUserById(
                 _appServices.Project.GetProjectLeader(_project.Id));
 
             Memberlabel.Text = $"Members: {leader.Username} (Leader)";

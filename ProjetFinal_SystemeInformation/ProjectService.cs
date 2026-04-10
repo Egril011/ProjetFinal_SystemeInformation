@@ -4,9 +4,14 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal class ProjectService
+    public class ProjectService
     {
-        private ProjectRepository _projectRepository = new ProjectRepository();
+        private ProjectRepository _projectRepository;
+
+        public ProjectService(ProjectRepository projectRepository)
+        {
+            _projectRepository = projectRepository;
+        }
 
         public int CreateProject(Project project)
         {
@@ -14,11 +19,6 @@ namespace ProjetFinal_SystemeInformation
                 return -1;
 
             return _projectRepository.CreateProject(project);
-        }
-
-        public void RemoveUserFromProject(int projectId, int userId)
-        {
-            _projectRepository.RemoveUserFromProject(projectId, userId);
         }
 
         public void DeleteProject(int projectId)

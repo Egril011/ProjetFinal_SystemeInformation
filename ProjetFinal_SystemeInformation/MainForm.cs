@@ -73,7 +73,6 @@ namespace ProjetFinal_SystemeInformation
                 return;
             }
 
-
             ProjectDetailsForm projectDetailsForm = new ProjectDetailsForm(_appServices,
                 (Project)ProjectslistBox.SelectedItem);
 
