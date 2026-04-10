@@ -18,7 +18,9 @@ namespace ProjetFinal_SystemeInformation
                     command.Parameters.AddWithValue("@Name", project.Name);
                     command.Parameters.AddWithValue("@Course", project.Course);
                     command.Parameters.AddWithValue("@UserId", project.UserId);
-                    command.Parameters.AddWithValue("@JoinCode", project.JoinCode);
+                    command.Parameters.AddWithValue("@JoinCode", 
+                        string.IsNullOrEmpty(project.JoinCode)? 
+                        DBNull.Value : project.JoinCode);
                     command.Parameters.AddWithValue("@Created", DateTime.Now);
 
                     return Convert.ToInt32(command.ExecuteScalar());
