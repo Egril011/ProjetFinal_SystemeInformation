@@ -88,10 +88,11 @@
             // 
             // ProjectslistBox
             // 
+            ProjectslistBox.Font = new Font("Segoe UI", 10F);
             ProjectslistBox.FormattingEnabled = true;
             ProjectslistBox.Location = new Point(12, 169);
             ProjectslistBox.Name = "ProjectslistBox";
-            ProjectslistBox.Size = new Size(578, 169);
+            ProjectslistBox.Size = new Size(578, 140);
             ProjectslistBox.TabIndex = 8;
             // 
             // label1
@@ -109,7 +110,7 @@
             OpenProjectbutton.BackColor = Color.FromArgb(31, 35, 40);
             OpenProjectbutton.Font = new Font("Segoe UI", 12F);
             OpenProjectbutton.ForeColor = Color.White;
-            OpenProjectbutton.Location = new Point(263, 357);
+            OpenProjectbutton.Location = new Point(201, 356);
             OpenProjectbutton.Name = "OpenProjectbutton";
             OpenProjectbutton.Size = new Size(202, 48);
             OpenProjectbutton.TabIndex = 10;

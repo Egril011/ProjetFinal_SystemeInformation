@@ -25,10 +25,11 @@ namespace ProjetFinal_SystemeInformation
         {
             ProjectNamelabel.Text = $"Project: {_project.Name}";
 
+            //Get the project leader and members
             User leader = _appServices.Auth.GetUserById(
                 _appServices.Project.GetProjectLeader(_project.Id));
 
-            Memberlabel.Text = $"Project members: {leader.Username}(Leader)";
+            Memberlabel.Text = $"Members: {leader.Username} (Leader)";
 
             foreach (int memberId in _appServices.Project.GetProjectMembers(_project.Id))
             {
@@ -39,7 +40,12 @@ namespace ProjetFinal_SystemeInformation
                 }
             }
 
-            Memberlabel.Text += "(Members)";
+            //Get the project course and join code
+            Courselabel.Text = $"Course: {_project.Course}";
+            if (!string.IsNullOrEmpty(_project.JoinCode))
+            {
+                JoinCodelabel.Text = $"Join Code: {_project.JoinCode}";
+            }
         }
 
         private void BacklinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -47,6 +53,13 @@ namespace ProjetFinal_SystemeInformation
             MainForm mainForm = new MainForm(_appServices);
             mainForm.Show();
             this.Close();
+        }
+
+        private void CreateTaskButton_Click(object sender, EventArgs e)
+        {
+           CreateTaskForm createTaskForm = new CreateTaskForm(_appServices);
+            createTaskForm.Show();
+            this.Hide();
         }
     }
 }
