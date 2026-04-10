@@ -35,6 +35,7 @@
             ProjectslistBox = new ListBox();
             label1 = new Label();
             OpenProjectbutton = new Button();
+            DeleteProjectButton1 = new Button();
             SuspendLayout();
             // 
             // SignOutlinkLabel
@@ -54,7 +55,7 @@
             // 
             Welcomlabel.AutoSize = true;
             Welcomlabel.Font = new Font("Segoe UI", 20F);
-            Welcomlabel.Location = new Point(12, 31);
+            Welcomlabel.Location = new Point(12, 30);
             Welcomlabel.Name = "Welcomlabel";
             Welcomlabel.Size = new Size(90, 37);
             Welcomlabel.TabIndex = 1;
@@ -110,19 +111,33 @@
             OpenProjectbutton.BackColor = Color.FromArgb(31, 35, 40);
             OpenProjectbutton.Font = new Font("Segoe UI", 12F);
             OpenProjectbutton.ForeColor = Color.White;
-            OpenProjectbutton.Location = new Point(201, 356);
+            OpenProjectbutton.Location = new Point(31, 356);
             OpenProjectbutton.Name = "OpenProjectbutton";
-            OpenProjectbutton.Size = new Size(202, 48);
+            OpenProjectbutton.Size = new Size(183, 48);
             OpenProjectbutton.TabIndex = 10;
             OpenProjectbutton.Text = "Open Selected Project";
             OpenProjectbutton.UseVisualStyleBackColor = false;
             OpenProjectbutton.Click += OpenProjectbutton_Click;
+            // 
+            // DeleteProjectButton1
+            // 
+            DeleteProjectButton1.BackColor = Color.FromArgb(31, 35, 40);
+            DeleteProjectButton1.Font = new Font("Segoe UI", 12F);
+            DeleteProjectButton1.ForeColor = Color.White;
+            DeleteProjectButton1.Location = new Point(220, 356);
+            DeleteProjectButton1.Name = "DeleteProjectButton1";
+            DeleteProjectButton1.Size = new Size(202, 48);
+            DeleteProjectButton1.TabIndex = 11;
+            DeleteProjectButton1.Text = "Delete Selected Project";
+            DeleteProjectButton1.UseVisualStyleBackColor = false;
+            DeleteProjectButton1.Click += DeleteProjectButton1_Click;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(DeleteProjectButton1);
             Controls.Add(OpenProjectbutton);
             Controls.Add(label1);
             Controls.Add(ProjectslistBox);
@@ -144,5 +159,6 @@
         private ListBox ProjectslistBox;
         private Label label1;
         private Button OpenProjectbutton;
+        private Button DeleteProjectButton1;
     }
 }

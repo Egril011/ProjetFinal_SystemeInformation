@@ -44,6 +44,7 @@ namespace ProjetFinal_SystemeInformation
             Courselabel.Text = $"Course: {_project.Course}";
             if (!string.IsNullOrEmpty(_project.JoinCode))
             {
+                JoinCodelabel.Visible = true ;
                 JoinCodelabel.Text = $"Join Code: {_project.JoinCode}";
             }
         }

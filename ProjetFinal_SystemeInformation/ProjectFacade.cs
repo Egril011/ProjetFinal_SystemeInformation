@@ -22,6 +22,18 @@ namespace ProjetFinal_SystemeInformation
                     ProjectRole.Leader);
         }
 
+        public void DeleteProject(int projectId, int userId)
+        {
+            if(_projectMembersService.IsUserProjectOwner(projectId, userId))
+            {
+                _projectMembersService.RemoveAllMembersFromProject(projectId);
+                _projectService.DeleteProject(projectId);
+                return;
+            }
+
+            _projectMembersService.RemoveMemberFromProject(projectId, userId);
+        }
+
         public List<Project> GetProjectsByUserId(int userId)
         {
             return _projectService.GetProjectsByUserId(userId);

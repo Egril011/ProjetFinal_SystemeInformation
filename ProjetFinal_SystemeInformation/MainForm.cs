@@ -67,18 +67,34 @@ namespace ProjetFinal_SystemeInformation
 
         private void OpenProjectbutton_Click(object sender, EventArgs e)
         {
-           if (ProjectslistBox.SelectedItem == null)
+            if (ProjectslistBox.SelectedItem == null)
             {
                 MessageBox.Show("Please select a valid project.");
                 return;
             }
 
 
-            ProjectDetailsForm projectDetailsForm = new ProjectDetailsForm(_appServices, 
+            ProjectDetailsForm projectDetailsForm = new ProjectDetailsForm(_appServices,
                 (Project)ProjectslistBox.SelectedItem);
 
             projectDetailsForm.Show();
             this.Hide();
+        }
+
+        private void DeleteProjectButton1_Click(object sender, EventArgs e)
+        {
+            if(ProjectslistBox.SelectedItems == null)
+            {
+                MessageBox.Show("Please select a valid project.");
+                return;
+            }
+
+            Project selectedProject = (Project)ProjectslistBox.SelectedItem;
+            _appServices.Project.DeleteProject(selectedProject.Id,
+                _appServices.Auth.CurrentUser.Id);
+
+            ProjectslistBox.Items.Remove(selectedProject);
+            MessageBox.Show("Project deleted successfully.");
         }
     }
 }

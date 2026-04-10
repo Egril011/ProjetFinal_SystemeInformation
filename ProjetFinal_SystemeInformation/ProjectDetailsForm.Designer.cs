@@ -105,6 +105,7 @@
             JoinCodelabel.Size = new Size(77, 21);
             JoinCodelabel.TabIndex = 5;
             JoinCodelabel.Text = "JoinCode:";
+            JoinCodelabel.Visible = false;
             // 
             // listBox1
             // 

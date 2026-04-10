@@ -28,6 +28,35 @@ namespace ProjetFinal_SystemeInformation
             }
         }
 
+        public void RemoveUserFromProject(int projectId, int userId)
+        {
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+                string query = "DELETE FROM ProjectMembers WHERE ProjectId = @projectId AND UserId = @userId";
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@projectId", projectId);
+                    command.Parameters.AddWithValue("@userId", userId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void DeleteProject(int projectId)
+        {
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+                string query = "DELETE FROM Projects WHERE Id = @projectId";
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@projectId", projectId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public List<Project> GetProjectsByUserId(int userId)
         {
             List<Project> projects = new List<Project>();

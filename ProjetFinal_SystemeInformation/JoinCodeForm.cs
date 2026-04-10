@@ -30,7 +30,7 @@ namespace ProjetFinal_SystemeInformation
             if(JointextBox.Text == String.Empty)
             {
                MessageBox.Show("Please enter a join code.");
-                return;
+               return;
             }
 
             
@@ -38,7 +38,10 @@ namespace ProjetFinal_SystemeInformation
                 _appServices.Auth.CurrentUser.Id))
             {
                 MessageBox.Show("You have successfully joined the project!");
-                 return;
+                MainForm mainForm = new MainForm(_appServices);
+                mainForm.Show();
+                this.Close();
+                return;
             }
 
             MessageBox.Show("Invalid join code or you are already a member of this project.");

@@ -26,6 +26,36 @@ namespace ProjetFinal_SystemeInformation
             }
         }
 
+        public void RemoveAllMembersFromProject(int projectId)
+        {
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+                string query = "DELETE FROM ProjectMembers WHERE ProjectId = @projectId";
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@projectId", projectId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
+        public void RemoveMemberFromProject(int projectId, int userId)
+        {
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+                string query = "DELETE FROM ProjectMembers " +
+                    "WHERE ProjectId = @projectId AND UserId = @userId";
+                using (var command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@projectId", projectId);
+                    command.Parameters.AddWithValue("@userId", userId);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public bool MemberExists(int projectId, int userId)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
@@ -75,6 +105,27 @@ namespace ProjetFinal_SystemeInformation
             }
 
             return -1;
+        }
+
+        public bool IsUserProjectOwner(int projectId, int userId)
+        {
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT COUNT(*) FROM ProjectMembers " +
+                    "WHERE ProjectId = @projectId AND UserId = @userId AND Role = @role";
+                using (SqliteCommand command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@projectId", projectId);
+                    command.Parameters.AddWithValue("@userId", userId);
+                    command.Parameters.AddWithValue("@role", (int)ProjectRole.Leader);
+                    if (Convert.ToInt32(command.ExecuteScalar()) > 0)
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+            }
         }
 
         public List<int> GetProjectMembers(int projectId)

@@ -16,6 +16,16 @@ namespace ProjetFinal_SystemeInformation
             return _projectRepository.CreateProject(project);
         }
 
+        public void RemoveUserFromProject(int projectId, int userId)
+        {
+            _projectRepository.RemoveUserFromProject(projectId, userId);
+        }
+
+        public void DeleteProject(int projectId)
+        {
+            _projectRepository.DeleteProject(projectId);
+        }
+
         public List<Project> GetProjectsByUserId(int id)
         {
             return _projectRepository.GetProjectsByUserId(id);

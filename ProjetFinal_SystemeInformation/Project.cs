@@ -16,8 +16,7 @@ namespace ProjetFinal_SystemeInformation
         public override string ToString()
         {
             return $"Project Name: {Name} - " +
-                $"Course: {Course} - " +
-                $"Join Code: {JoinCode}";
+                $"Course: {Course}";
         }
     }
 }

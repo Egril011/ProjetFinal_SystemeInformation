@@ -29,6 +29,7 @@ namespace ProjetFinal_SystemeInformation
             JoinCodeLabel.Visible = false;
             Codelabel.Visible = false;
         }
+
         private void PublicradioButton_CheckedChanged(object sender, EventArgs e)
         {
             JoinCodeLabel.Visible = true;
@@ -54,7 +55,17 @@ namespace ProjetFinal_SystemeInformation
                 Created = DateTime.Now
             };
 
-            _appServices.Project.CreateProject(project);
+            if(_appServices.Project.CreateProject(project))
+            {
+                MessageBox.Show("Project created successfully.");
+                MainForm mainForm = new MainForm(_appServices);
+                mainForm.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Failed to create project.");
+            }
         }
 
         private void BacklinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
