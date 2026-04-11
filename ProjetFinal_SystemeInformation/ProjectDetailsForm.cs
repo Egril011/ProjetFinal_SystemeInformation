@@ -25,7 +25,6 @@ namespace ProjetFinal_SystemeInformation
         {
             ProjectNamelabel.Text = $"Project: {_project.Name}";
 
-            //Get the project leader and members
             User? leader = _appServices.Auth.GetUserById(
                 _appServices.Project.GetProjectLeader(_project.Id));
 
@@ -40,13 +39,14 @@ namespace ProjetFinal_SystemeInformation
                 }
             }
 
-            //Get the project course and join code
             Courselabel.Text = $"Course: {_project.Course}";
             if (!string.IsNullOrEmpty(_project.JoinCode))
             {
-                JoinCodelabel.Visible = true ;
+                JoinCodelabel.Visible = true;
                 JoinCodelabel.Text = $"Join Code: {_project.JoinCode}";
             }
+
+            RefreshTasks();
         }
 
         private void BacklinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -58,9 +58,80 @@ namespace ProjetFinal_SystemeInformation
 
         private void CreateTaskButton_Click(object sender, EventArgs e)
         {
-           CreateTaskForm createTaskForm = new CreateTaskForm(_appServices);
+            CreateTaskForm createTaskForm = new CreateTaskForm(_appServices, _project);
             createTaskForm.Show();
             this.Hide();
+        }
+
+        private void CompletTaskbutton_Click(object sender, EventArgs e)
+        {
+            if (ToDolistBox.SelectedItems == null &&
+                InProgresslistBox.SelectedItems == null &&
+                DonelistBox.SelectedItems == null)
+            {
+                MessageBox.Show("Please select a task to complete.");
+                return;
+            }
+
+            Task task = GetSelectedTask();
+            if(task == null)
+                return;
+
+            _appServices.Task.MoveTask(task);
+            RefreshTasks();
+        }
+
+        private void MoveBackbutton_Click(object sender, EventArgs e)
+        {
+            if (ToDolistBox.SelectedItems == null &&
+                InProgresslistBox.SelectedItems == null &&
+                DonelistBox.SelectedItems == null)
+            {
+                MessageBox.Show("Please select a task to complete.");
+                return;
+            }
+
+            Task task = GetSelectedTask();
+            if (task == null)
+                return;
+
+            _appServices.Task.MoveTaskBack(task);
+            RefreshTasks();
+        }
+
+        private Task? GetSelectedTask()
+        {
+            ListBox[] listBoxes = { ToDolistBox, InProgresslistBox, DonelistBox };
+            foreach (ListBox listBox in listBoxes)
+            {
+                if (listBox.SelectedItem != null)
+                    return (Task)listBox.SelectedItem;
+            }
+
+            return null;
+        }
+
+        private void RefreshTasks()
+        {
+            ToDolistBox.Items.Clear();
+            InProgresslistBox.Items.Clear();
+            DonelistBox.Items.Clear();
+            List<Task> tasks = _appServices.Task.GetAllProjectTasks(_project.Id);
+            foreach (Task task in tasks)
+            {
+                switch (task.Status)
+                {
+                    case TaskStatus.ToDo:
+                        ToDolistBox.Items.Add(task);
+                        break;
+                    case TaskStatus.InProgress:
+                        InProgresslistBox.Items.Add(task);
+                        break;
+                    case TaskStatus.Done:
+                        DonelistBox.Items.Add(task);
+                        break;
+                }
+            }
         }
     }
 }

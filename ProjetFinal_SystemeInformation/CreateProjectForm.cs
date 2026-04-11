@@ -50,8 +50,7 @@ namespace ProjetFinal_SystemeInformation
                 ProjectNametextBox.Text,
                 CoursetextBox.Text,
                 _appServices.Auth.CurrentUser.Id,
-                PublicradioButton.Checked ? Codelabel.Text : null,
-                DateTime.Now
+                PublicradioButton.Checked ? Codelabel.Text : null
                 );
 
             if(_appServices.Project.CreateProject(project))

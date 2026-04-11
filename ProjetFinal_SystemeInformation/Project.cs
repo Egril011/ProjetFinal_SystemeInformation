@@ -13,13 +13,13 @@ namespace ProjetFinal_SystemeInformation
         public string JoinCode { get; private set; }
         public DateTime CreatedAt { get; private set; }
 
-        public Project(string name, string course, int userId, string joinCode, DateTime createdAt)
+        public Project(string name, string course, int userId, string joinCode)
         {
             Name = name;
             Course = course;
             UserId = userId;
             JoinCode = joinCode;
-            CreatedAt = createdAt;
+            CreatedAt = DateTime.Now;
         }
 
         public Project(int id, string name, string course, int userId, string joinCode, DateTime created)

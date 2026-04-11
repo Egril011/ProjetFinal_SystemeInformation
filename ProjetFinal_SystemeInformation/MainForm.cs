@@ -82,7 +82,7 @@ namespace ProjetFinal_SystemeInformation
 
         private void DeleteProjectButton1_Click(object sender, EventArgs e)
         {
-            if(ProjectslistBox.SelectedItems == null)
+            if (ProjectslistBox.SelectedItem == null)
             {
                 MessageBox.Show("Please select a valid project.");
                 return;

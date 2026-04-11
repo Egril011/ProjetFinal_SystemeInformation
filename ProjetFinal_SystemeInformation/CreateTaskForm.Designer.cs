@@ -38,7 +38,7 @@
             DescriptionTextBox = new TextBox();
             LowRadioButton = new RadioButton();
             MediumRadioButton = new RadioButton();
-            highRadioButton = new RadioButton();
+            hightRadioButton = new RadioButton();
             dueDatetimePicker = new DateTimePicker();
             SaveTaskButton = new Button();
             SuspendLayout();
@@ -142,16 +142,16 @@
             MediumRadioButton.Text = "Medium";
             MediumRadioButton.UseVisualStyleBackColor = true;
             // 
-            // highRadioButton
+            // hightRadioButton
             // 
-            highRadioButton.AutoSize = true;
-            highRadioButton.Location = new Point(400, 216);
-            highRadioButton.Name = "highRadioButton";
-            highRadioButton.Size = new Size(55, 19);
-            highRadioButton.TabIndex = 11;
-            highRadioButton.TabStop = true;
-            highRadioButton.Text = "Hight";
-            highRadioButton.UseVisualStyleBackColor = true;
+            hightRadioButton.AutoSize = true;
+            hightRadioButton.Location = new Point(400, 216);
+            hightRadioButton.Name = "hightRadioButton";
+            hightRadioButton.Size = new Size(55, 19);
+            hightRadioButton.TabIndex = 11;
+            hightRadioButton.TabStop = true;
+            hightRadioButton.Text = "Hight";
+            hightRadioButton.UseVisualStyleBackColor = true;
             // 
             // dueDatetimePicker
             // 
@@ -180,7 +180,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(SaveTaskButton);
             Controls.Add(dueDatetimePicker);
-            Controls.Add(highRadioButton);
+            Controls.Add(hightRadioButton);
             Controls.Add(MediumRadioButton);
             Controls.Add(LowRadioButton);
             Controls.Add(DescriptionTextBox);
@@ -209,7 +209,7 @@
         private TextBox DescriptionTextBox;
         private RadioButton LowRadioButton;
         private RadioButton MediumRadioButton;
-        private RadioButton highRadioButton;
+        private RadioButton hightRadioButton;
         private DateTimePicker dueDatetimePicker;
         private Button SaveTaskButton;
     }

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal enum TaskPriority
+    public enum TaskPriority
     {
         Low = 0,
         Medium = 1,

@@ -4,10 +4,10 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal interface ITaskState
+    public interface ITaskState
     {
         string GetName();
-        ITaskState MoveNext();
-        ITaskState MovePrevious();
+        void MoveNext(Task task);
+        void MovePrevious(Task task);
     }
 }

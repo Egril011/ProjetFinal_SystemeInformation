@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal enum TaskStatus
+    public enum TaskStatus
     {
         ToDo = 0,
         InProgress = 1,

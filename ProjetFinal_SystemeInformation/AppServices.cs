@@ -8,6 +8,7 @@ namespace ProjetFinal_SystemeInformation
     {
         private AuthFacade _authFacade;
         private ProjectFacade _projectFacade;
+        private TaskFacade _taskFacade;
 
         public AppServices()
         {
@@ -18,10 +19,15 @@ namespace ProjetFinal_SystemeInformation
             _projectFacade = new ProjectFacade(
                 new ProjectService(new ProjectRepository()), 
                 new ProjectMembersService(new ProjectMembersRepository()));
+
+            _taskFacade = new TaskFacade(
+                new TaskService(new TaskRepository()));
         }
 
         public AuthFacade Auth => _authFacade;
 
         public ProjectFacade Project => _projectFacade;
+
+        public TaskFacade Task => _taskFacade;
     }
 }

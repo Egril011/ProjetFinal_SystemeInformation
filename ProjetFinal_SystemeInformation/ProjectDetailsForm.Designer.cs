@@ -34,9 +34,9 @@
             Memberlabel = new Label();
             Courselabel = new Label();
             JoinCodelabel = new Label();
-            listBox1 = new ListBox();
-            listBox2 = new ListBox();
-            listBox3 = new ListBox();
+            ToDolistBox = new ListBox();
+            InProgresslistBox = new ListBox();
+            DonelistBox = new ListBox();
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
@@ -107,29 +107,29 @@
             JoinCodelabel.Text = "JoinCode:";
             JoinCodelabel.Visible = false;
             // 
-            // listBox1
+            // ToDolistBox
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(12, 170);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(179, 154);
-            listBox1.TabIndex = 6;
+            ToDolistBox.FormattingEnabled = true;
+            ToDolistBox.Location = new Point(12, 170);
+            ToDolistBox.Name = "ToDolistBox";
+            ToDolistBox.Size = new Size(179, 154);
+            ToDolistBox.TabIndex = 6;
             // 
-            // listBox2
+            // InProgresslistBox
             // 
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(221, 170);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(179, 154);
-            listBox2.TabIndex = 7;
+            InProgresslistBox.FormattingEnabled = true;
+            InProgresslistBox.Location = new Point(221, 170);
+            InProgresslistBox.Name = "InProgresslistBox";
+            InProgresslistBox.Size = new Size(179, 154);
+            InProgresslistBox.TabIndex = 7;
             // 
-            // listBox3
+            // DonelistBox
             // 
-            listBox3.FormattingEnabled = true;
-            listBox3.Location = new Point(428, 170);
-            listBox3.Name = "listBox3";
-            listBox3.Size = new Size(179, 154);
-            listBox3.TabIndex = 8;
+            DonelistBox.FormattingEnabled = true;
+            DonelistBox.Location = new Point(428, 170);
+            DonelistBox.Name = "DonelistBox";
+            DonelistBox.Size = new Size(179, 154);
+            DonelistBox.TabIndex = 8;
             // 
             // label2
             // 
@@ -185,6 +185,7 @@
             MoveBackbutton.TabIndex = 13;
             MoveBackbutton.Text = "Move Back";
             MoveBackbutton.UseVisualStyleBackColor = false;
+            MoveBackbutton.Click += MoveBackbutton_Click;
             // 
             // CompletTaskbutton
             // 
@@ -197,6 +198,7 @@
             CompletTaskbutton.TabIndex = 14;
             CompletTaskbutton.Text = "Complet Task";
             CompletTaskbutton.UseVisualStyleBackColor = false;
+            CompletTaskbutton.Click += CompletTaskbutton_Click;
             // 
             // Progresslabel
             // 
@@ -220,9 +222,9 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(listBox3);
-            Controls.Add(listBox2);
-            Controls.Add(listBox1);
+            Controls.Add(DonelistBox);
+            Controls.Add(InProgresslistBox);
+            Controls.Add(ToDolistBox);
             Controls.Add(JoinCodelabel);
             Controls.Add(Courselabel);
             Controls.Add(Memberlabel);
@@ -243,9 +245,9 @@
         private Label Memberlabel;
         private Label Courselabel;
         private Label JoinCodelabel;
-        private ListBox listBox1;
-        private ListBox listBox2;
-        private ListBox listBox3;
+        private ListBox ToDolistBox;
+        private ListBox InProgresslistBox;
+        private ListBox DonelistBox;
         private Label label2;
         private Label label3;
         private Label label4;

@@ -4,21 +4,24 @@ using System.Text;
 
 namespace ProjetFinal_SystemeInformation
 {
-    internal class ToDoState: ITaskState
+    public class ToDoState: ITaskState
     {
+        private static ToDoState _instance = new ToDoState();
+        public static ToDoState Instance => _instance;
+
         public string GetName()
         {
             return "To Do";
         }
 
-        public ITaskState MoveNext()
+        public void MoveNext(Task task)
         {
-            return new InProgressState();
+           task.SetState(InProgressState.Instance);
         }
 
-        public ITaskState MovePrevious()
+        public void MovePrevious(Task task)
         {
-            return this;
+            task?.SetState(this);
         }
     }
 }
