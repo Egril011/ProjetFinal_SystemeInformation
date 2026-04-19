@@ -45,6 +45,11 @@ namespace ProjetFinal_SystemeInformation
             return _projectService.GetProjectsByUserId(userId);
         }
 
+        public Project? GetProjectById(int projectId)
+        {
+            return _projectService.GetProjectById(projectId);
+        }
+
         public int GetProjectLeader(int userId)
         {
             return _projectMembersService.GetProjectLeaderId(userId);

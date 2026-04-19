@@ -74,7 +74,7 @@ namespace ProjetFinal_SystemeInformation
             }
 
             Task task = GetSelectedTask();
-            if(task == null)
+            if (task == null)
                 return;
 
             _appServices.Task.MoveTask(task);
@@ -132,6 +132,25 @@ namespace ProjetFinal_SystemeInformation
                         break;
                 }
             }
+        }
+
+        private void TaskDetailsButton_Click(object sender, EventArgs e)
+        {
+            if (ToDolistBox.SelectedItems == null &&
+                 InProgresslistBox.SelectedItems == null &&
+                 DonelistBox.SelectedItems == null)
+            {
+                MessageBox.Show("Please select a task to view details.");
+                return;
+            }
+
+            Task task = GetSelectedTask();
+            if (task == null)
+                return;
+
+            TaskDetailsForm taskDetailsForm = new TaskDetailsForm(_appServices, task);
+            taskDetailsForm.Show();
+            this.Hide();
         }
     }
 }

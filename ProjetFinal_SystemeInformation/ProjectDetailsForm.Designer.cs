@@ -44,6 +44,7 @@
             MoveBackbutton = new Button();
             CompletTaskbutton = new Button();
             Progresslabel = new Label();
+            TaskDetailsButton = new Button();
             SuspendLayout();
             // 
             // ProjectNamelabel
@@ -210,11 +211,25 @@
             Progresslabel.TabIndex = 15;
             Progresslabel.Text = "Progress:";
             // 
-            // ProjectDetailsForm
+            // TaskDetailsButton
+            // 
+            TaskDetailsButton.BackColor = Color.FromArgb(31, 35, 40);
+            TaskDetailsButton.Font = new Font("Segoe UI", 12F);
+            TaskDetailsButton.ForeColor = Color.White;
+            TaskDetailsButton.Location = new Point(385, 381);
+            TaskDetailsButton.Name = "TaskDetailsButton";
+            TaskDetailsButton.Size = new Size(157, 40);
+            TaskDetailsButton.TabIndex = 16;
+            TaskDetailsButton.Text = "Open Selected Task";
+            TaskDetailsButton.UseVisualStyleBackColor = false;
+            TaskDetailsButton.Click += TaskDetailsButton_Click;
+            // 
+            // d
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(TaskDetailsButton);
             Controls.Add(Progresslabel);
             Controls.Add(CompletTaskbutton);
             Controls.Add(MoveBackbutton);
@@ -231,7 +246,7 @@
             Controls.Add(BacklinkLabel);
             Controls.Add(label1);
             Controls.Add(ProjectNamelabel);
-            Name = "ProjectDetailsForm";
+            Name = "d";
             Text = "ProjectDetailsForm";
             ResumeLayout(false);
             PerformLayout();
@@ -255,5 +270,6 @@
         private Button MoveBackbutton;
         private Button CompletTaskbutton;
         private Label Progresslabel;
+        private Button TaskDetailsButton;
     }
 }

@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ProjetFinal_SystemeInformation.AppServices" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAEACAAAAAAAAAAAAEAAIBAAAAA=</HashCode>
+      <FileName>AppServices.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.AuthFacade" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACCIAYAAAAAAAACAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AuthFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.AuthService" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACoAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AuthService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.DatabaseHelper" Collapsed="true">
+    <Position X="8.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAABAAAAA=</HashCode>
+      <FileName>DatabaseHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.DoneState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAABAA=</HashCode>
+      <FileName>DoneState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.InProgressState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAABAA=</HashCode>
+      <FileName>InProgressState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.PasswordManager" Collapsed="true">
+    <Position X="5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAEAAAAAAACAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PasswordManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.Project" Collapsed="true">
+    <Position X="6.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAEAKAAAAwAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.ProjectFacade" Collapsed="true">
+    <Position X="8.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAQABAAgAIAAAgAAAAAAAAAAAAAEAAAACBA=</HashCode>
+      <FileName>ProjectFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.ProjectMember" Collapsed="true">
+    <Position X="10.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAIAAAAAAAAAAAgABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProjectMember.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.ProjectMembersRepository" Collapsed="true">
+    <Position X="3.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAABAQAAEAAQAAAAAAAAAAABCAAAAAAAAA=</HashCode>
+      <FileName>ProjectMembersRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.ProjectMembersService" Collapsed="true">
+    <Position X="5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAQIAEAAQAAAAAAAAAAAgCAAAAAAAAA=</HashCode>
+      <FileName>ProjectMembersService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.ProjectRepository" Collapsed="true">
+    <Position X="6.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAhAAAAAgAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>ProjectRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.ProjectService" Collapsed="true">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAhAIAAAgAAAAAAgAAAAAAAAAAACAA=</HashCode>
+      <FileName>ProjectService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.Task" Collapsed="true">
+    <Position X="10.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAACBAAEAAAgAGAEAGAACAAABAIAAAAAIAgABAAAAAA=</HashCode>
+      <FileName>Task.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.TaskFacade" Collapsed="true">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAQAAAAAAAAIAAAAAAAABAAAAAAAAAABA=</HashCode>
+      <FileName>TaskFacade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.TaskRepository" Collapsed="true">
+    <Position X="5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAQAAAAAAAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>TaskRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.TaskService" Collapsed="true">
+    <Position X="6.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAQAAAAAAAAIAAAAAAAABAAAAAACAAAAA=</HashCode>
+      <FileName>TaskService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.ToDoState" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAYAAAAAAABAA=</HashCode>
+      <FileName>ToDoState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.User" Collapsed="true">
+    <Position X="10.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAACAAAAAAAQAAAAAAAAAAACACAAAAAAAAAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.UserRepository" Collapsed="true">
+    <Position X="3.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAQAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserRepository.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ProjetFinal_SystemeInformation.UserSession" Collapsed="true">
+    <Position X="5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACCAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserSession.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="ProjetFinal_SystemeInformation.ITaskState" Collapsed="true">
+    <Position X="3.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAABAA=</HashCode>
+      <FileName>ITaskState.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="ProjetFinal_SystemeInformation.ProjectRole" Collapsed="true">
+    <Position X="3.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProjectRole.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ProjetFinal_SystemeInformation.TaskPriority" Collapsed="true">
+    <Position X="5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAgAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>TaskPriority.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ProjetFinal_SystemeInformation.TaskStatus" Collapsed="true">
+    <Position X="6.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>TaskStatus.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

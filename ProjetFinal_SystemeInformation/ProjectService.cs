@@ -31,6 +31,15 @@ namespace ProjetFinal_SystemeInformation
             return _projectRepository.GetProjectsByUserId(id);
         }
 
+        public Project? GetProjectById(int projectId)
+        {
+            if (projectId == null)
+                return null;
+
+            return _projectRepository.GetProjectById(projectId);
+
+        }
+
         public Project? GetProjectByJoinCode(string joinCode)
         {
             if(joinCode == String.Empty)

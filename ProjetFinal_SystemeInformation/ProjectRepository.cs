@@ -80,6 +80,36 @@ namespace ProjetFinal_SystemeInformation
             return projects;
         }
 
+        public Project? GetProjectById(int project)
+        {
+            using (var connection = DatabaseHelper.Instance.GetConnection())
+            {
+                connection.Open();
+                string query = "SELECT Id, Name, Course, CreatedByUserId, JoinCode, CreatedAt " +
+                    "FROM Projects WHERE Id = @projectId";
+                using (SqliteCommand command = new SqliteCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@projectId", project);
+                    using (SqliteDataReader reader = command.ExecuteReader())
+                    {
+                        if (!reader.Read())
+                            return null;
+
+                        Project projectResult = new Project(
+                            Convert.ToInt32(reader["Id"]),
+                            reader["Name"].ToString(),
+                            course: reader["Course"].ToString(),
+                            Convert.ToInt32(reader["CreatedByUserId"]),
+                            reader["JoinCode"].ToString(),
+                            Convert.ToDateTime(reader["CreatedAt"])
+                        );
+
+                        return projectResult;
+                    }
+                }
+            }
+        }
+
         public Project? GetProjectByJoinCode(string joinCode)
         {
             using (var connection = DatabaseHelper.Instance.GetConnection())
